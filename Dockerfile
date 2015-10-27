@@ -23,7 +23,7 @@ RUN mv /$ES_PKG_NAME /elasticsearch
 VOLUME ["/data"]
 ADD config/elasticsearch.yml /elasticsearch/config/elasticsearch.yml
 WORKDIR /data
-#CMD ["/elasticsearch/bin/elasticsearch"]
+CMD ["/elasticsearch/bin/elasticsearch"]
 EXPOSE 9200
 
 ###### install Kibana ######
@@ -34,7 +34,7 @@ RUN wget https://download.elastic.co/kibana/kibana/$KB_PKG_NAME.tar.gz
 RUN tar xvzf $KB_PKG_NAME.tar.gz
 RUN rm -f $KB_PKG_NAME.tar.gz
 RUN mv /$KB_PKG_NAME /kibana
-#CMD ["/kibana/bin/kibana"]
+CMD ["/kibana/bin/kibana"]
 
 EXPOSE 5601
 
@@ -48,7 +48,7 @@ RUN tar xvzf $LG_PKG_NAME.tar.gz
 RUN rm -f $LG_PKG_NAME.tar.gz
 RUN mv /$LG_PKG_NAME /logstash
 ADD config/logstash.conf /logstash/logstash.conf
-CMD ["whereis logstash.conf"]
+
 EXPOSE 5001
 
-#CMD ["/logstash/bin/logstash -f /logstash/logstash.conf"]
+CMD ["/logstash/bin/logstash -f /logstash/logstash.conf"]
