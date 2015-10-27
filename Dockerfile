@@ -50,8 +50,5 @@ ADD config/logstash.conf /logstash/logstash.conf
 
 EXPOSE 5001
 
-#CMD /logstash/bin/logstash -f /logstash/bin/logstash.conf
 
-#CMD ['docker run -d -p 5601:5601 -p 9200:9200 -p 5001:5001  --privileged -it --name elk_log exploit/elk']
-#CMD  ['docker exec -it elk_log /bin/bash']
 
