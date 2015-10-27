@@ -48,3 +48,5 @@ RUN rm -f $LG_PKG_NAME.tar.gz
 RUN mv /$LG_PKG_NAME /logstash
 ADD config/logstash.conf /logstash/logstash.conf
 EXPOSE 5001
+
+CMD ["/logstash/bin/logstash -f /logstash/logstash.conf"]
