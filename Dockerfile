@@ -46,7 +46,7 @@ RUN wget https://download.elastic.co/logstash/logstash/$LG_PKG_NAME.tar.gz
 RUN tar xvzf $LG_PKG_NAME.tar.gz
 RUN rm -f $LG_PKG_NAME.tar.gz
 RUN mv /$LG_PKG_NAME /logstash
-ADD config/logstash.conf /logstash/logstash.conf
+ADD config/logstash.conf /logstash/bin/logstash.conf
 
 EXPOSE 5001
 
