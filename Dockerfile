@@ -23,7 +23,7 @@ RUN mv /$ES_PKG_NAME /elasticsearch
 VOLUME ["/data"]
 ADD config/elasticsearch.yml /elasticsearch/config/elasticsearch.yml
 WORKDIR /data
-CMD /elasticsearch/bin/elasticsearch
+#CMD /elasticsearch/bin/elasticsearch
 EXPOSE 9200
 
 ###### install Kibana ######
@@ -34,8 +34,7 @@ RUN wget https://download.elastic.co/kibana/kibana/$KB_PKG_NAME.tar.gz
 RUN tar xvzf $KB_PKG_NAME.tar.gz
 RUN rm -f $KB_PKG_NAME.tar.gz
 RUN mv /$KB_PKG_NAME /kibana
-CMD /kibana/bin/kibana
-
+#CMD /kibana/bin/kibana
 EXPOSE 5601
 
 
@@ -51,7 +50,7 @@ ADD config/logstash.conf /logstash/logstash.conf
 
 EXPOSE 5001
 
-CMD /logstash/bin/logstash -f /logstash/logstash.conf
+#CMD /logstash/bin/logstash -f /logstash/logstash.conf
 
 #CMD ['docker run -d -p 5601:5601 -p 9200:9200 -p 5001:5001  --privileged -it --name elk_log exploit/elk']
 #CMD  ['docker exec -it elk_log /bin/bash']
