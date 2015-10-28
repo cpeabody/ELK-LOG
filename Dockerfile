@@ -34,6 +34,7 @@ RUN wget https://download.elastic.co/kibana/kibana/$KB_PKG_NAME.tar.gz
 RUN tar xvzf $KB_PKG_NAME.tar.gz
 RUN rm -f $KB_PKG_NAME.tar.gz
 RUN mv /$KB_PKG_NAME /kibana
+ADD config/elasticsearch.yml /elasticsearch/config/elasticsearch.yml
 EXPOSE 5601
 ########## run Kibana
 WORKDIR /                    
