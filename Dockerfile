@@ -21,9 +21,10 @@ RUN rm -f $ES_PKG_NAME.tar.gz
 RUN mv /$ES_PKG_NAME /elasticsearch
 
 VOLUME ["/data"]
-ADD config/elasticsearch.yml /elasticsearch/config/elasticsearch.yml
 WORKDIR /data
-#CMD /elasticsearch/bin/elasticsearch
+
+WORKDIR / 
+RUN ./elasticsearch/bin/elasticsearch
 EXPOSE 9200
 
 ###### install Kibana ######
