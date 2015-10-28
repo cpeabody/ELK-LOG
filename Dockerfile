@@ -23,7 +23,7 @@ WORKDIR /data
 EXPOSE 9200
 ########## run logstash
 WORKDIR /        
-RUN ./elasticsearch/bin/elasticsearch -d
+#RUN ./elasticsearch/bin/elasticsearch -d
 
 
 
@@ -37,7 +37,7 @@ RUN mv /$KB_PKG_NAME /kibana
 EXPOSE 5601
 ########## run Kibana
 WORKDIR /                    
-RUN /kibana/bin/kibana & disown                         
+#RUN /kibana/bin/kibana & disown                         
 
 
 ###### install Logstash #######################################################
