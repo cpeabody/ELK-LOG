@@ -53,3 +53,7 @@ EXPOSE 5001
 ########## run Logstash
 WORKDIR /
 #RUN /logstash/bin/logstash -f /logstash/bin/logstash.conf
+
+######provide key
+ADD config/logstash-forwarder.crt /etc/pki/tls/certs/logstash-forwarder.crt
+ADD config/logstash-forwarder.key /etc/pki/tls/private/logstash-forwarder.key
