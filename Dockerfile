@@ -12,8 +12,7 @@ RUN yum -y install wget \
                    tar
 WORKDIR /
 
-###### install Elasticsearch ######
-
+###### install Elasticsearch #######################################################
 ENV ES_PKG_NAME elasticsearch-1.7.3
 RUN wget https://download.elasticsearch.org/elasticsearch/elasticsearch/$ES_PKG_NAME.tar.gz
 RUN tar xvzf $ES_PKG_NAME.tar.gz
@@ -21,33 +20,35 @@ RUN rm -f $ES_PKG_NAME.tar.gz
 RUN mv /$ES_PKG_NAME /elasticsearch
 VOLUME ["/data"]
 WORKDIR /data
-WORKDIR / 
-#RUN ./elasticsearch/bin/elasticsearch
 EXPOSE 9200
+########## run logstash
+WORKDIR /        
+RUN ./elasticsearch/bin/elasticsearch -d
 
-###### install Kibana ######
 
+
+###### install Kibana #######################################################
 ENV KB_PKG_NAME kibana-4.1.2-linux-x64
 WORKDIR /
 RUN wget https://download.elastic.co/kibana/kibana/$KB_PKG_NAME.tar.gz
 RUN tar xvzf $KB_PKG_NAME.tar.gz
 RUN rm -f $KB_PKG_NAME.tar.gz
 RUN mv /$KB_PKG_NAME /kibana
-#CMD /kibana/bin/kibana
 EXPOSE 5601
+########## run Kibana
+WORKDIR /                    
+#RUN /kibana/bin/kibana & disown                         
 
 
-###### install Logstash ######
+###### install Logstash #######################################################
 ENV LG_PKG_NAME logstash-1.5.4
-
 WORKDIR /
 RUN wget https://download.elastic.co/logstash/logstash/$LG_PKG_NAME.tar.gz
 RUN tar xvzf $LG_PKG_NAME.tar.gz
 RUN rm -f $LG_PKG_NAME.tar.gz
 RUN mv /$LG_PKG_NAME /logstash
 ADD config/logstash.conf /logstash/bin/logstash.conf
-
 EXPOSE 5001
-
+########## run Logstash
 
 
