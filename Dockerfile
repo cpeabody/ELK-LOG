@@ -50,5 +50,5 @@ RUN mv /$LG_PKG_NAME /logstash
 ADD config/logstash.conf /logstash/bin/logstash.conf
 EXPOSE 5001
 ########## run Logstash
-
-
+WORKDIR /
+#RUN /logstash/bin/logstash -f /logstash/bin/logstash.conf
