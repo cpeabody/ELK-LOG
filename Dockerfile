@@ -22,10 +22,10 @@ RUN mv /$ES_PKG_NAME /elasticsearch
 
 VOLUME ["/data"]
 WORKDIR /data
-
+EXPOSE 9200
 WORKDIR / 
 RUN ./elasticsearch/bin/elasticsearch
-EXPOSE 9200
+
 
 ###### install Kibana ######
 
