@@ -37,7 +37,7 @@ RUN mv /$KB_PKG_NAME /kibana
 EXPOSE 5601
 ########## run Kibana
 WORKDIR /                    
-#RUN /kibana/bin/kibana & disown                         
+RUN /kibana/bin/kibana & disown                         
 
 
 ###### install Logstash #######################################################
