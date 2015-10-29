@@ -57,7 +57,7 @@ WORKDIR /
 ADD config/logstash-forwarder.crt /etc/pki/tls/certs/logstash-forwarder.crt
 ADD config/logstash-forwarder.key /etc/pki/tls/private/logstash-forwarder.key
 
-RUN mkdir /startScript
-ADD elk_start.sh /etc/elk_start.sh
-RUN chmod 755 /etc/elk_start.sh
+
+ADD elk_start.sh /elk_start.sh
+CMD chmod 755 /elk_start.sh
 
